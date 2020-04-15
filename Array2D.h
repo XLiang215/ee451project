@@ -19,7 +19,7 @@ public:
 
 	Array2D(int col, int row, T value);
 
-	Array2D(const vector<vector<T>> &vec_vec);
+	Array2D(const vector<vector<T> > &vec_vec);
 
 	// from image 64FC1
 	Array2D(const Mat &img);
@@ -139,14 +139,14 @@ public:
 
 	Mat to_Mat_64FC1() const;
 
-	vector<vector<T>> get_array2D() const;
+	vector<vector<T> > get_array2D() const;
 
 	// 得到每一行的最大值的位置
 	vector<int> max_index() const;
 
 private:
 
-	vector<vector<T>> _array2D;
+	vector<vector<T> > _array2D;
 
 };
 

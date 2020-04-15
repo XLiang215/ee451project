@@ -23,7 +23,7 @@ Mat matrix_double_to_Mat_64FC1(double *array, int row, int col)
 }
 
 
-Mat vector_vector_double_to_Mat_64FC1(const vector<vector<double>> &array)
+Mat vector_vector_double_to_Mat_64FC1(const vector<vector<double> > &array)
 {
 	int row = array.at(0).size();
 	int col = array.size();
@@ -72,7 +72,7 @@ void show_matrix_double_as_image_64FC1(double *array, int row, int col, int time
 
 
 // ��ͼƬ����ʽ��vector������ʾ����
-void show_vector_vector_double_as_image_64FC1(const vector<vector<double>> &array, int time_msec)
+void show_vector_vector_double_as_image_64FC1(const vector<vector<double> > &array, int time_msec)
 {
 	Mat image = vector_vector_double_to_Mat_64FC1(array);
 

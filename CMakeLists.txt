@@ -12,6 +12,7 @@ add_executable(cpplenet Main_LeNet.h Main_LeNet.cpp CNN.h CNN.cpp
                 )
 
 set(OpenCV_FOUND 1)
+set( OpenCV_DIR /home/rcf-proj/xq2/xliang85/proj/opcv/opencv-2.4.11/release )
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 

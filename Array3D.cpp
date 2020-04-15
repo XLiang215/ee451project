@@ -194,7 +194,7 @@ void Array3D<T>::expand_to_full_size(int col_size, int row_size)
 	int X_expand_row = _array3D.at(0).at(0).size() + 2 * (row_size - 1);
 	int X_expand_col = _array3D.at(0).size() + 2 * (col_size - 1);
 
-	vector<Array2D<T>> temp;
+	vector<Array2D<T> > temp;
 
 	Array2D<T> X_expand(X_expand_col, X_expand_row, 0);
 

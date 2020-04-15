@@ -13,13 +13,13 @@ using namespace std;
 
 cv::Mat matrix_double_to_Mat_64FC1(double *array, int row, int col);
 // class done
-cv::Mat vector_vector_double_to_Mat_64FC1(const vector<vector<double>> &array);
+cv::Mat vector_vector_double_to_Mat_64FC1(const vector<vector<double> > &array);
 
 vector<cv::Mat> vector_array2D_to_vector_Mat_64FC1(const vector<array2D> &vector_array);
 
 void show_matrix_double_as_image_64FC1(double *array, int row, int col, int time_msec);
 // class done
-void show_vector_vector_double_as_image_64FC1(const vector<vector<double>> &array, int time_msec);
+void show_vector_vector_double_as_image_64FC1(const vector<vector<double> > &array, int time_msec);
 
 void vector_Mat_64FC1_show_one_window(const std::string& MultiShow_WinName, const vector<cv::Mat>& SrcImg_V, Size SubPlot, Size ImgMax_Size, int time_msec);
 

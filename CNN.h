@@ -35,13 +35,13 @@ typedef struct{
     vector<Array3Dd> X;// 注意是_batchsize幅输入输出同时处理，所以不是2D，而是3D，维度为[_batchsize, iSizePic[0], iSizePic[1]]
 
     // 前一层通道对当前层通道的卷积核
-    vector<vector<Array2Dd>> Ker;// Ker[I][J], I为前一层通道数，J为当前层通道数。只针对卷积层，其它层此参数无意义
+    vector<vector<Array2Dd> > Ker;// Ker[I][J], I为前一层通道数，J为当前层通道数。只针对卷积层，其它层此参数无意义
 
     // 前一层通道对当前层通道的卷积核的偏置
-    vector<vector<Array2Dd>> Ker_delta;// Ker_delta[I][J], I为前一层通道数，J为当前层通道数。只针对卷积层，其它层此参数无意义
+    vector<vector<Array2Dd> > Ker_delta;// Ker_delta[I][J], I为前一层通道数，J为当前层通道数。只针对卷积层，其它层此参数无意义
 
     // 前一层通道对当前层通道的卷积核的梯度
-    vector<vector<Array2Dd>> Ker_grad;// Ker_grad[I][J], I为前一层通道数，J为当前层通道数。只针对卷积层，其它层此参数无意义
+    vector<vector<Array2Dd> > Ker_grad;// Ker_grad[I][J], I为前一层通道数，J为当前层通道数。只针对卷积层，其它层此参数无意义
 
     // 当前层与上一层的连接权值
     Array2Dd W;// 只针对全连接层，其它层此参数无意义

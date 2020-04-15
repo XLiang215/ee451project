@@ -51,11 +51,11 @@ public:
 	Array2D<T> reshape_to_Array2D() const;
 
     // 将列向量转为n幅图像
-	static vector<Array3D<T>> reshape_from_Array2D(const Array2D<T> &array2D, int channel, int col, int row)
+	static vector<Array3D<T> > reshape_from_Array2D(const Array2D<T> &array2D, int channel, int col, int row)
 	{
 		int batch_size = array2D.size();
 
-		vector<Array3D<T>> vec_arr3D;
+		vector<Array3D<T> > vec_arr3D;
 
 		if (batch_size <= 0)
 		{
@@ -125,7 +125,7 @@ private:
 
 	vector<Mat> to_vector_Mat_64FC1() const;
 
-	vector<Array2D<T>> _array3D;
+	vector<Array2D<T> > _array3D;
 
 };
 
