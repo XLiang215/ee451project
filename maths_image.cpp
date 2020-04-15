@@ -105,7 +105,7 @@ void read_batch_images(string file_addr, string image_suffix, int begin_num, int
 
             data_set.push_back(image);
 
-            if (image.data == nullptr) {
+            if (image.data == NULL) {
                 cout << "[warning: no image!]" << endl;
             }
         }
