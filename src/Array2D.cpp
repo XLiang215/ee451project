@@ -19,7 +19,7 @@ Array2D<T>::Array2D(int col, int row, T value)
 
 
 template <typename T>
-Array2D<T>::Array2D(const vector<vector<T> > &vec_vec)
+Array2D<T>::Array2D(const vector<vector<T>> &vec_vec)
 {
 	_array2D = vec_vec;
 }
@@ -347,7 +347,7 @@ void Array2D<T>::expand_to_full_size(int col_size, int row_size)
 
 	vector<T> vec_temp;
 	vec_temp.assign(X_expand_row, 0);
-	vector<vector<T> > temp;
+	vector<vector<T>> temp;
 	temp.assign(X_expand_col, vec_temp);
 
 	for (i = 0; i < X_row; i++)
@@ -458,7 +458,7 @@ Array2D<T> Array2D<T>::transpose() const
 template <typename T>
 Array2D<T> Array2D<T>::flip_xy() const
 {
-	vector<vector<T> >  vec_vec = _array2D;
+	vector<vector<T>>  vec_vec = _array2D;
 	
 	for (int i = 0; i < vec_vec.size(); i++)
 	{
@@ -504,6 +504,17 @@ void Array2D<T>::class_0_to_9(int length)
 	{
 		_array2D.push_back(one_hot);
 	}
+}
+
+template <typename T>
+void Array2D<T>::class_from_labels(vector<int> vec)
+{
+    vector<double> one_hot;
+    for (int i : vec) {
+        one_hot.assign(10, 0);
+        one_hot.at(i) = 1;
+        _array2D.push_back(one_hot);
+    }
 }
 
 
@@ -958,7 +969,7 @@ Mat Array2D<T>::to_Mat_64FC1() const
 
 
 template <typename T>
-vector<vector<T> > Array2D<T>::get_array2D() const
+vector<vector<T>> Array2D<T>::get_array2D() const
 {
 	return _array2D;
 }
@@ -1001,7 +1012,7 @@ vector<int> Array2D<T>::max_index() const
 
 // only define for double
 template Array2D<double>::Array2D(int col, int row, double value);
-template Array2D<double>::Array2D(const vector<vector<double> > &vec_vec);
+template Array2D<double>::Array2D(const vector<vector<double>> &vec_vec);
 template Array2D<double>::Array2D(const Mat &img);
 template void Array2D<double>::from_image_64FC1(const Mat &img);
 template void Array2D<double>::create(int col, int row, double value);
@@ -1039,5 +1050,6 @@ template void Array2D<double>::print() const;
 template void Array2D<double>::show_image_64FC1() const;
 template void Array2D<double>::show_image_64FC1(int time_msec) const;
 template Mat Array2D<double>::to_Mat_64FC1() const;
-template vector<vector<double> > Array2D<double>::get_array2D() const;
+template vector<vector<double>> Array2D<double>::get_array2D() const;
 template vector<int> Array2D<double>::max_index() const;
+template void Array2D<double>::class_from_labels(vector<int> vec);

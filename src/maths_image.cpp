@@ -23,7 +23,7 @@ Mat matrix_double_to_Mat_64FC1(double *array, int row, int col)
 }
 
 
-Mat vector_vector_double_to_Mat_64FC1(const vector<vector<double> > &array)
+Mat vector_vector_double_to_Mat_64FC1(const vector<vector<double>> &array)
 {
 	int row = array.at(0).size();
 	int col = array.size();
@@ -72,7 +72,7 @@ void show_matrix_double_as_image_64FC1(double *array, int row, int col, int time
 
 
 // ��ͼƬ����ʽ��vector������ʾ����
-void show_vector_vector_double_as_image_64FC1(const vector<vector<double> > &array, int time_msec)
+void show_vector_vector_double_as_image_64FC1(const vector<vector<double>> &array, int time_msec)
 {
 	Mat image = vector_vector_double_to_Mat_64FC1(array);
 
@@ -88,26 +88,24 @@ void show_vector_vector_double_as_image_64FC1(const vector<vector<double> > &arr
 // ��ָ���ļ�����������ȡͼƬ
 void read_batch_images(string file_addr, string image_suffix, int begin_num, int end_num, vector<Mat> &data_set)
 {
-    for (int repe = 0; repe < 600; repe ++) {
-        if (repe % 100 == 99)
-            cout<<"reading samples "<<(repe + 1) * 100<<" / 60000"<<endl;
-        for (int i = begin_num; i <= end_num; i++) {
-            stringstream ss; // intתstring
-            string image_name;
-            ss << i;
-            ss >> image_name;
-            image_name = image_name + "." + image_suffix;
-            string image_addr_name = file_addr + "/" + image_name;
-            //		cout << "reading " << image_name << " from " << image_addr_name << endl;
+    for (int i = begin_num; i < end_num; i++) {
+        if (i % 10000 == 9999)
+            cout<<i+1<<" / "<<end_num<<endl;
+        stringstream ss; // intתstring
+        string image_name;
+        ss << i;
+        ss >> image_name;
+        image_name = image_name + "." + image_suffix;
+        string image_addr_name = file_addr + "/" + image_name;
+        //		cout << "reading " << image_name << " from " << image_addr_name << endl;
 
-            // ��ȡ�Ҷ�ͼ
-            Mat image = imread(image_addr_name, 0);
+        // ��ȡ�Ҷ�ͼ
+        Mat image = imread(image_addr_name, 0);
 
-            data_set.push_back(image);
+        data_set.push_back(image);
 
-            if (image.data == NULL) {
-                cout << "[warning: no image!]" << endl;
-            }
+        if (image.data == nullptr) {
+            cout << "[warning: no image!]" << endl;
         }
     }
 }
