@@ -40,16 +40,15 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 file(GLOB SRC_FILES  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} 
     "src/*")
 
-cuda_add_executable(cpplenet ${SRC_FILE})
+cuda_add_executable(cpplenet ${SRC_FILES})
 
 
-
-`# linking
+# linking
 target_link_libraries(cpplenet 
 	${OpenCV_LIBS}
     ${CUDA_CUBLAS_LIBRARIES}
     ${CUDA_curand_LIBRARY}
     ${CUDA_LIBRARIES}
 	)
+CUDA_ADD_CUBLAS_TO_TARGET(cpplenet)
 
-CUDA_ADD_CUBLAS_TO_TARGET(cpplenet))

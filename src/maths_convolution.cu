@@ -1,6 +1,7 @@
 #include "maths_convolution.h"
 #include <cublas.h>
-
+#include<cuda_runtime_api.h>
+#include<cuda.h>
 
 __global__ void convolution(float *I, const float* __restrict__ M, float *P,int channels, int width, int height, int TILE_WIDTH, int maskLength)
 {
